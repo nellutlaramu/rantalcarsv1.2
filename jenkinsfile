@@ -1,0 +1,8 @@
+node(){
+  stage("Git checkout"){
+    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '9aaef712-ce5d-4198-9241-fa8d5d3048e8', url: 'https://github.com/nellutlaramu/rantalcarsv1.2.git']])
+  }
+  stage("Maven Build"){
+  sh "mvn package"
+  }
+}
